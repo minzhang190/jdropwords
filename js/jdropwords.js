@@ -300,7 +300,8 @@ jQuery.fn.jDropWords = function(options) {
         break;
       }
     }
-    drawCircle(35, 35, score + "/" + nbQst, function() {
+    var canvas = appContainer.find('.score-canvas').get(0);
+    drawCircle(canvas, 35, 35, score + "/" + nbQst, function() {
       $(".feedback p").text(feedbackText);
     });
   }
@@ -319,7 +320,7 @@ jQuery.fn.jDropWords = function(options) {
     var html = '<div class="feedback clearfix" style="display: none;">' +
       '<p></p>' +
       '<div class="score">' +
-        '<canvas id="score-canvas" width="70" height="70"></canvas>' +
+        '<canvas class="score-canvas" width="70" height="70"></canvas>' +
       '</div>' +
     '</div>';
     return html;
@@ -339,11 +340,10 @@ jQuery.fn.jDropWords = function(options) {
    * @param callback
    *   callback
    */
-  function drawCircle(x, y, text, callback) {
+  function drawCircle(canvas, x, y, text, callback) {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
 
-    var canvas = document.getElementById('score-canvas');
     var context = canvas.getContext('2d');
     var circles = [];
 
