@@ -54,7 +54,7 @@ jQuery.fn.jDropWords = function(options) {
   function getDroppedElement(srcElt) {
     var html = '<div class="' + settings.droppedClass + ' clearfix" rel="' + srcElt.attr('id') + '">' +
       '<span>' + srcElt.html() + '</span>' +
-      '<div class="action"><a href="#" class="close">x</a></div>' +
+      '<div class="action"><a href="javascript:void(0);" class="close">x</a></div>' +
       '</div>';
     var container = $(html);
     $('a', container).click(function() {
