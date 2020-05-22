@@ -31,6 +31,8 @@ jQuery.fn.jDropWords = function(options) {
    *   jQuery target element.
    */
   function dropElement(srcElt, targetElt) {
+    targetElt = targetElt.filter(srcElt.parents('.jdropwords-container').find('.blank'));
+    if (targetElt.length == 0) return;
     // Removes droppable.
     srcElt.draggable( "disable" );
     //srcElt.prepend(targetElt);
@@ -122,6 +124,8 @@ jQuery.fn.jDropWords = function(options) {
    * @param appContainer
    */
   function init(appContainer) {
+    appContainer.addClass('jdropwords-container');
+
     $( ".word", appContainer).draggable({
       containment: appContainer,
       revert: true
