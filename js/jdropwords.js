@@ -257,6 +257,7 @@ jQuery.fn.jDropWords = function(options) {
     });
 
     // Display score.
+    if (settings.feedbacks)
     setTimeout(function() {
         displayScore(appContainer, score, nbQuestions);
     },
